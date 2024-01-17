@@ -1,0 +1,23 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="spiking_lander">
+  <doc>
+    <description>
+This module lands a drone using a spiking neural network. 
+
+    </description>
+    <!-- <define name="ORANGE_AVOIDER_VISUAL_DETECTION_ID" value="ABI_BROADCAST" description="which VISUAL_DETECTION message to recieve for orange pole detection."/> -->
+  </doc>
+    <settings>
+
+  </settings>
+  
+  <header>
+    <file name="spiking_lander.h"/>
+  </header>
+  <init fun="spiking_init()"/>
+  <periodic fun="spiking_lander_periodic()" freq="50"/>
+  <makefile target="ap|nps">
+    <file name="spiking_lander.cpp"/>
+  </makefile>
+</module>
