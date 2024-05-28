@@ -1,0 +1,30 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+<module name="snn_lander" dir="snn_lander" task="control">
+  <doc>
+    <description>Uses a spiking neural network to land the bebop 2 drone. Lander runs at a frequency of 50 Hz. </description>
+  </doc>
+
+  <!-- <define name="VERTICAL_CTRL_MODULE_AGL_ID" value="ABI_BROADCAST" description="Sender id of the AGL (sonar) ABI message"/> -->
+
+  <header>
+    <file name="Connection.h"/>
+    <file name="lif.h"/>
+    <file name="softmax.h"/>
+    <file name="drone_lander.h"/>
+    <file name="snn_lander.h"/>
+    <!-- <file name="sonar_bebop.h" dir="sonar"/> -->
+    <!-- <file name="state.h"/> -->
+  </header>
+
+  <init fun="init_lander()"/>
+  <periodic fun="land_snn()" freq="50.0" autorun="FALSE"/>
+  <makefile>
+    <file name="Connection.c"/>
+    <file name="lif.c"/>
+    <file name="softmax.c"/>
+    <file name="drone_lander.c"/>
+    <file name="snn_lander.c"/>
+    <!-- <file name="sonar_bebop.c" dir="sw/airborne/modules/sonar"/> -->
+    <test/>
+  </makefile>
+</module>
